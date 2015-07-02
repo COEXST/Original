@@ -427,7 +427,7 @@ OTHER_FILES += \
 # platform specific defaults, if not overridden on command line
 isEmpty(BOOST_LIB_SUFFIX) {
     macx:BOOST_LIB_SUFFIX = -mt
-    windows:BOOST_LIB_SUFFIX = -mgw48-mt-s-1_550
+    windows:BOOST_LIB_SUFFIX = -mgw44-mt-1_53
 }
 
 isEmpty(BOOST_THREAD_LIB_SUFFIX) {
@@ -435,7 +435,7 @@ isEmpty(BOOST_THREAD_LIB_SUFFIX) {
 }
 
 isEmpty(BDB_LIB_PATH) {
-    macx:BDB_LIB_PATH = /opt/local/lib/db48
+    macx:BDB_LIB_PATH = /usr/local/lib
 }
 
 isEmpty(BDB_LIB_SUFFIX) {
@@ -443,15 +443,31 @@ isEmpty(BDB_LIB_SUFFIX) {
 }
 
 isEmpty(BDB_INCLUDE_PATH) {
-    macx:BDB_INCLUDE_PATH = /opt/local/include/db48
+    macx:BDB_INCLUDE_PATH = /usr/local/include/
 }
 
 isEmpty(BOOST_LIB_PATH) {
-    macx:BOOST_LIB_PATH = /opt/local/lib
+    macx:BOOST_LIB_PATH = /usr/local/lib
 }
 
 isEmpty(BOOST_INCLUDE_PATH) {
-    macx:BOOST_INCLUDE_PATH = /opt/local/include
+    macx:BOOST_INCLUDE_PATH = /usr/local/include
+}
+
+isEmpty(OPENSSL_LIB_PATH) {
+    macx:OPENSSL_LIB_PATH = /usr/local/lib
+}
+
+isEmpty(OPENSSL_INCLUDE_PATH) {
+    macx:OPENSSL_INCLUDE_PATH = /usr/local/include
+
+}
+isEmpty(MINIUPNPC_LIB_PATH) {
+    macx:MINIUPNPC_LIB_PATH = /usr/local/lib
+}
+
+isEmpty(MINIUPNPC_INCLUDE_PATH) {
+    macx:MINIUPNPC_INCLUDE_PATH = /usr/local/include
 }
 
 windows:DEFINES += WIN32
@@ -473,11 +489,13 @@ windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     LIBS += -lrt
 }
 
-macx:HEADERS += src/qt/macdockiconhandler.h
-macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
+macx:HEADERS += src/qt/macdockiconhandler.h \
+                src/qt/macnotificationhandler.h
+macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm \
+                          src/qt/macnotificationhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
-macx:ICON = src/qt/res/icons/bitcoin.icns
+macx:ICON = src/qt/res/icons/CoExistCoin.icns
 macx:TARGET = "CoExistCoin-Qt"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
