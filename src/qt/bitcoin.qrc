@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/icons">
-        <file alias="bitcoin">res/icons/CoExistCoin.png</file>
-		<file alias="drmbg">res/icons/CoExistCoin-256.png</file>
         <file alias="address-book">res/icons/address-book.png</file>
         <file alias="quit">res/icons/quit.png</file>
         <file alias="send">res/icons/send.png</file>
@@ -48,6 +46,7 @@
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash.png</file>
+		<file alias="bkg">res/images/bkg.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
